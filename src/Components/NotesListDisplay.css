@@ -4,7 +4,6 @@
   align-items: flex-start;
   flex-wrap: wrap;
   height: 90%;
-  overflow-y: scroll;
 }
 .note-card {
   display: flex;
