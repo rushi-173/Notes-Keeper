@@ -21,53 +21,49 @@ export default function NotesListDisplay({
       })
     ]);
   }
-  function showNotes() {
-    notesList.map((note) => {
-      return (
-        <div className="note-card" style={{ backgroundColor: note.color }}>
-          <h3>{note.title}</h3>
-          <p>{note.note}</p>
-          <div>
-            <button onClick={() => pinNote(note)}>
-              {note.ispinned ? "unpin" : "pin"}
-            </button>
-            <button
-              onClick={() => {
-                deleteNote(note);
-              }}
-            >
-              delete
-            </button>
-          </div>
+  function NoteCard({ note }) {
+    return (
+      <div className="note-card" style={{ backgroundColor: note.color }}>
+        <h3>{note.title}</h3>
+        <p>{note.note}</p>
+        <div>
+          <button onClick={() => pinNote(note)}>
+            {note.ispinned ? "unpin" : "pin"}
+          </button>
+          <button
+            onClick={() => {
+              deleteNote(note);
+            }}
+          >
+            delete
+          </button>
         </div>
-      );
-    });
+      </div>
+    );
   }
-  //   } else {
-  //     notesList.map((note) => {
-  //       if (note.tag === tagSelected) {
-  //         return (
-  //           <div className="note-card" style={{ backgroundColor: note.color }}>
-  //             <h3>{note.title}</h3>
-  //             <p>{note.note}</p>
-  //             <div>
-  //               <button onClick={() => pinNote(note)}>
-  //                 {note.ispinned ? "unpin" : "pin"}
-  //               </button>
-  //               <button
-  //                 onClick={() => {
-  //                   deleteNote(note);
-  //                 }}
-  //               >
-  //                 delete
-  //               </button>
-  //             </div>
-  //           </div>
-  //         );
-  //       }
-  //       return null;
-  //     });
-  //   }
-  // }
-  return <div className="noteslist-display">{showNotes()}</div>;
+
+  return (
+    <div className="noteslist-display">
+      {notesList.map((note) => {
+        if (note.ispinned == true && tagSelected == "none") {
+          return <NoteCard note={note} />;
+        }
+      })}
+      {notesList.map((note) => {
+        if (note.ispinned == false && tagSelected == "none") {
+          return <NoteCard note={note} />;
+        }
+      })}
+      {notesList.map((note) => {
+        if (note.ispinned == true && note.tag == tagSelected) {
+          return <NoteCard note={note} />;
+        }
+      })}
+      {notesList.map((note) => {
+        if (note.ispinned == false && note.tag == tagSelected) {
+          return <NoteCard note={note} />;
+        }
+      })}
+    </div>
+  );
 }
