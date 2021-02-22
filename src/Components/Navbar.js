@@ -5,7 +5,6 @@ export default function Navbar({ setNavItem }) {
     <div className="Navbar">
       <div className="nav-logo">
         <h2 className="nav-title">Notes Keeper</h2>
-        <hr color="" width="180px" />
         <p
           style={{
             fontFamily: "Lora",
