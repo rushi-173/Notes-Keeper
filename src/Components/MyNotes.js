@@ -1,6 +1,24 @@
 import { useState } from "react";
 import "./MyNotes.css";
+import NotesForm from "./NotesForm";
+const notesData = [
+  {
+    id: 1,
+    title: "Rent Payment",
+    note: "Paid Rs.2000 to milkman and paperboy. Now I have 500rs only.",
+    ispinned: false,
+    tag: "Payment",
+    color: "#ff1744"
+  }
+];
 export default function MyNotes() {
+  const [notesList, setNotesList] = useState(notesData);
+  const [tagsList, setTagsList] = useState([
+    "none",
+    "Payment",
+    "College",
+    "NeogCamp"
+  ]);
   return (
     <div className="MyNotes">
       <div className="taglist">
@@ -8,14 +26,7 @@ export default function MyNotes() {
       </div>
       <div className="notes-list"></div>
       <div className="notes-manager">
-        <div className="notes-form">
-          <h2>Create A Note</h2>
-          <label>Add Title : </label>
-          <input type="text" className="input" />
-          <label>Add Note : </label>
-          <textarea rows="10" className="input" />
-          <button className="input">Submit</button>
-        </div>
+        <NotesForm tagsList={tagsList} setNotesList={setNotesList} />
       </div>
     </div>
   );
