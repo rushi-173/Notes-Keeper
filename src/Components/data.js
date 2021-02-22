@@ -37,7 +37,7 @@ module.exports = [
     id: 5,
     title: "Success",
     note: "Key to getting good at coding... consistency.",
-    ispinned: false,
+    ispinned: true,
     tag: "none",
     color: "#B2FF59"
   }
