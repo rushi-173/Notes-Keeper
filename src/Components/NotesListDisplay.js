@@ -55,12 +55,20 @@ export default function NotesListDisplay({
         }
       })}
       {notesList.map((note) => {
-        if (note.ispinned == true && note.tag == tagSelected) {
+        if (
+          note.ispinned == true &&
+          tagSelected != "none" &&
+          note.tag == tagSelected
+        ) {
           return <NoteCard note={note} />;
         }
       })}
       {notesList.map((note) => {
-        if (note.ispinned == false && note.tag == tagSelected) {
+        if (
+          note.ispinned == false &&
+          tagSelected != "none" &&
+          note.tag == tagSelected
+        ) {
           return <NoteCard note={note} />;
         }
       })}

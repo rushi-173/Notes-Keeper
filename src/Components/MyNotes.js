@@ -3,16 +3,7 @@ import "./MyNotes.css";
 import NotesForm from "./NotesForm";
 import NotesListDisplay from "./NotesListDisplay";
 import TagList from "./TagList";
-const notesData = [
-  {
-    id: 1,
-    title: "Rent Payment",
-    note: "Paid Rs.2000 to milkman and paperboy. Now I have 500rs only.",
-    ispinned: false,
-    tag: "Payment",
-    color: "#ff1744"
-  }
-];
+const notesData = require("./data.js");
 export default function MyNotes() {
   const [notesList, setNotesList] = useState(notesData);
   const [tagsList, setTagsList] = useState([
