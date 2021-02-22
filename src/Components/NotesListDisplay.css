@@ -1,0 +1,39 @@
+.noteslist-display {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 90%;
+}
+.note-card {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-content: center;
+  width: 300px;
+  box-shadow: 2px 2px 6px var(--d2), -2px -2px 6px var(--d3);
+  height: 150px;
+  margin: 0.5rem;
+  overflow: hidden;
+  color: var(--d2);
+}
+.note-card p {
+  overflow-y: auto;
+}
+.note-card h3 {
+  border-bottom: 2px solid white;
+  padding: 4px;
+  margin-bottom: 4px;
+}
+.note-card div {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding: 10px 20px;
+  border-top: 2px solid white;
+  margin-top: 4px;
+}
+.note-card button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}

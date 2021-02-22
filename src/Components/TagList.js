@@ -1,10 +1,21 @@
-export default function TagList({ tagsList }) {
+export default function TagList({ tagsList, tagSelected, setTagSelected }) {
   return (
-    <div className="taglist">
+    <div>
       <h2>Filter by Tag</h2>
-      {tagsList.map((tag) => {
-        return <button className="btn">{tag}</button>;
-      })}
+      <div className="taglist">
+        {tagsList.map((tag) => {
+          return (
+            <button
+              className="btn"
+              onClick={() => {
+                setTagSelected(tag);
+              }}
+            >
+              {tag}
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 }

@@ -1,8 +1,9 @@
 .MyNotes {
-  min-height: 90vh;
+  min-height: 87vh;
   width: 100%;
   background-color: var(--d3);
-  padding: 0;
+  padding: 0px;
+  margin: 0px;
   display: flex;
   /* justify-content: space-between; */
 }
@@ -35,6 +36,7 @@ button:hover {
   flex-direction: column;
   justify-content: space-between;
   padding: 1rem;
+  overflow: auto;
 }
 
 .taglist .btn {
@@ -93,6 +95,7 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  flex-direction: column;
   width: 50%;
   padding: 1rem;
   background-color: var(--d2);
@@ -105,10 +108,12 @@ textarea {
     flex-wrap: wrap;
     flex-direction: column-reverse;
   }
-  .notes-list,
-  .taglist-manager,
-  .notes-manager,
   .MyNotes {
     width: 100%;
+  }
+  .notes-list,
+  .taglist-manager,
+  .notes-manager {
+    width: 98.5%;
   }
 }

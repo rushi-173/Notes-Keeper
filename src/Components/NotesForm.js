@@ -1,18 +1,46 @@
 import { useState } from "react";
 import "./NotesForm.css";
-export default function NotesForm({ setNotesList, tagsList }) {
+export default function NotesForm({ notesList, setNotesList, tagsList }) {
   const colorsList = ["#363636", "#880E4F", "#4A148C", "#1A237E", "#BF360C"];
   const [noteColor, setNoteColor] = useState("#363636");
   const [noteTag, setNoteTag] = useState("none");
+  const [titleInput, setTitleInput] = useState("");
+  const [noteInput, setNoteInput] = useState("");
 
-  function createNote() {}
+  function createNote() {
+    setNotesList([
+      ...notesList,
+      {
+        id: Date.now(),
+        title: titleInput,
+        note: noteInput,
+        ispinned: false,
+        tag: noteTag,
+        color: noteColor
+      }
+    ]);
+  }
   return (
     <div className="notes-form">
       <h2>Create A Note</h2>
       <label>Add Title : </label>
-      <input type="text" className="input" />
+      <input
+        type="text"
+        className="input"
+        value={titleInput}
+        onChange={(e) => {
+          setTitleInput(e.target.value);
+        }}
+      />
       <label>Add Note : </label>
-      <textarea rows="10" className="input" />
+      <textarea
+        rows="10"
+        className="input"
+        value={noteInput}
+        onChange={(e) => {
+          setNoteInput(e.target.value);
+        }}
+      />
       <select
         style={{ backgroundColor: noteColor, color: "white" }}
         className="input"

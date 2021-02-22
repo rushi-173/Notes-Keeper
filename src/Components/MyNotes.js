@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./MyNotes.css";
 import NotesForm from "./NotesForm";
+import NotesListDisplay from "./NotesListDisplay";
 import TagList from "./TagList";
 const notesData = [
   {
@@ -21,17 +22,24 @@ export default function MyNotes() {
     "NeogCamp"
   ]);
   const [tagInput, setTagInput] = useState("");
+  const [tagSelected, setTagSelected] = useState("none");
   function tagChangeHandler(e) {
     setTagInput(e.target.value);
   }
   function addTag() {
-    setTagsList([...tagsList, tagInput]);
+    if (!tagsList.includes(tagInput)) {
+      setTagsList([...tagsList, tagInput]);
+    }
     setTagInput("");
   }
   return (
     <div className="MyNotes">
       <div className="taglist-manager">
-        <TagList tagsList={tagsList} setTagsList={setTagsList} />
+        <TagList
+          tagsList={tagsList}
+          setTagSelected={setTagSelected}
+          tagSelected={tagSelected}
+        />
         <div className="tags-form">
           <label>Add Tag : </label>
           <input
@@ -48,9 +56,18 @@ export default function MyNotes() {
       </div>
       <div className="notes-list">
         <h2>My Notes</h2>
+        <NotesListDisplay
+          notesList={notesList}
+          setNotesList={setNotesList}
+          tagSelected={tagSelected}
+        />
       </div>
       <div className="notes-manager">
-        <NotesForm tagsList={tagsList} setNotesList={setNotesList} />
+        <NotesForm
+          tagsList={tagsList}
+          notesList={notesList}
+          setNotesList={setNotesList}
+        />
       </div>
     </div>
   );
