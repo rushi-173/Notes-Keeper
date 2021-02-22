@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function NotesForm({ setNotesList, tagsList }) {
-  const colorsList = ["#363636", "#F50057", "#D500F9", "#3D5AFE", "#651FFF"];
+  const colorsList = ["#363636", "#880E4F", "#4A148C", "#1A237E", "#BF360C"];
   const [noteColor, setNoteColor] = useState("#363636");
   const [noteTag, setNoteTag] = useState("none");
 
