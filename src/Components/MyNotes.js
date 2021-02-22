@@ -21,8 +21,19 @@ export default function MyNotes() {
   ]);
   return (
     <div className="MyNotes">
-      <div className="taglist">
-        <div></div>
+      <div className="taglist-manager">
+        <div className="taglist">
+          <h2>Filter by Tag</h2>
+          {tagsList.map((tag) => {
+            return <button className="btn">{tag}</button>;
+          })}
+        </div>
+        <div className="tags-form">
+          <label>Add Tag : </label>
+          <input type="text" className="input" />
+          <button className="input">Add</button>
+          <h2>Add New Tag</h2>
+        </div>
       </div>
       <div className="notes-list"></div>
       <div className="notes-manager">

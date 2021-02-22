@@ -69,3 +69,7 @@ p {
   border-radius: 0.1rem;
   outline: none;
 }
+.btn:hover {
+  color: white;
+  background-color: var(--color-1);
+}
