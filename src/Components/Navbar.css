@@ -1,0 +1,46 @@
+.Navbar {
+  color: white;
+  background-color: var(--d1);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100vw;
+  margin-top: 0;
+  /* z-index: 1; */
+}
+.nav-menu {
+  padding: 0px;
+  justify-content: "space-around";
+  width: 25%;
+}
+.nav-logo {
+  width: 24.7%;
+  text-align: "left";
+  background-color: var(--color-1);
+  padding: "0rem 1rem";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.nav-title {
+  font-family: "Montserrat";
+}
+
+.btn-nav {
+  background-color: transparent;
+  color: white;
+  font-size: 1rem;
+}
+.btn-nav:active,
+.btn-nav:hover {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .nav-logo,
+  .nav-menu {
+    width: 100%;
+  }
+}

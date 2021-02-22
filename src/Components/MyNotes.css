@@ -1,0 +1,85 @@
+.MyNotes {
+  min-height: 90vh;
+  width: 100%;
+  background-color: var(--d3);
+  padding: 0;
+  display: flex;
+  /* justify-content: space-between; */
+}
+.taglist {
+  width: 25%;
+  background-color: var(--d1);
+}
+.notes-manager {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 25%;
+  padding: 1rem;
+  background-color: var(--d2);
+  margin: 5px;
+}
+.notes-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: white;
+  background-color: var(--d1);
+  padding: 1rem;
+  border: 2px solid var(--color-1);
+}
+.notes-form h2 {
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-1);
+  border-bottom: 2px solid var(--color-1);
+}
+.notes-form label {
+  text-align: left;
+  margin: 4px;
+  letter-spacing: 1px;
+  /* color: var(--color-1); */
+}
+.notes-form input,
+textarea {
+  border: 2px solid var(--color-1);
+}
+.notes-form button {
+  border: 2px solid var(--color-1);
+  margin: 1rem 0rem;
+  font-weight: 700;
+}
+.input {
+  margin: 0.2rem;
+  font-family: Montserrat;
+  font-weight: 500;
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 0.1rem;
+  outline: none;
+}
+.notes-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 50%;
+  padding: 1rem;
+  background-color: var(--d2);
+  margin: 5px;
+  margin-right: 0px;
+}
+
+@media (max-width: 768px) {
+  .MyNotes {
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+  }
+  .notes-list,
+  .taglist,
+  .notes-manager,
+  .MyNotes {
+    width: 100%;
+  }
+}
