@@ -1,6 +1,6 @@
 export default function TagList({ tagsList, tagSelected, setTagSelected }) {
   return (
-    <div>
+    <div className="tglist-container">
       <h2>Filter by Tag</h2>
       <div className="taglist">
         {tagsList.map((tag) => {
@@ -10,6 +10,7 @@ export default function TagList({ tagsList, tagSelected, setTagSelected }) {
               onClick={() => {
                 setTagSelected(tag);
               }}
+              key={tag}
             >
               {tag}
             </button>

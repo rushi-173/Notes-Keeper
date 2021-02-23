@@ -3,7 +3,8 @@ import "./NotesListDisplay.css";
 export default function NotesListDisplay({
   notesList,
   setNotesList,
-  tagSelected = "none"
+  tagSelected = "none",
+  ispinnedprop = true
 }) {
   function deleteNote(note) {
     let templist = notesList.filter((item) => {
@@ -45,32 +46,21 @@ export default function NotesListDisplay({
   return (
     <div className="noteslist-display">
       {notesList.map((note) => {
-        if (note.ispinned == true && tagSelected == "none") {
-          return <NoteCard note={note} />;
+        if (note.ispinned === ispinnedprop && tagSelected === "none") {
+          return <NoteCard note={note} key={note.id} />;
         }
+        return null;
       })}
-      {notesList.map((note) => {
-        if (note.ispinned == false && tagSelected == "none") {
-          return <NoteCard note={note} />;
-        }
-      })}
+
       {notesList.map((note) => {
         if (
-          note.ispinned == true &&
-          tagSelected != "none" &&
-          note.tag == tagSelected
+          note.ispinned === ispinnedprop &&
+          tagSelected !== "none" &&
+          note.tag === tagSelected
         ) {
-          return <NoteCard note={note} />;
+          return <NoteCard note={note} key={note.id} />;
         }
-      })}
-      {notesList.map((note) => {
-        if (
-          note.ispinned == false &&
-          tagSelected != "none" &&
-          note.tag == tagSelected
-        ) {
-          return <NoteCard note={note} />;
-        }
+        return null;
       })}
     </div>
   );

@@ -1,24 +1,33 @@
 import { useState } from "react";
 import "./NotesForm.css";
 export default function NotesForm({ notesList, setNotesList, tagsList }) {
-  const colorsList = ["#F48FB1", "#CE93D8", "#81D4FA", "#B2FF59", "#FFF59D"];
-  const [noteColor, setNoteColor] = useState("#363636");
+  const colorsList = [
+    "#18FFFF",
+    "#F48FB1",
+    "#CE93D8",
+    "#81D4FA",
+    "#B2FF59",
+    "#FFF59D"
+  ];
+  const [noteColor, setNoteColor] = useState("#18FFFF");
   const [noteTag, setNoteTag] = useState("none");
   const [titleInput, setTitleInput] = useState("");
   const [noteInput, setNoteInput] = useState("");
 
   function createNote() {
-    setNotesList([
-      ...notesList,
-      {
-        id: Date.now(),
-        title: titleInput,
-        note: noteInput,
-        ispinned: false,
-        tag: noteTag,
-        color: noteColor
-      }
-    ]);
+    if (noteInput !== "" && titleInput !== "") {
+      setNotesList([
+        ...notesList,
+        {
+          id: Date.now(),
+          title: titleInput,
+          note: noteInput,
+          ispinned: false,
+          tag: noteTag,
+          color: noteColor
+        }
+      ]);
+    }
   }
   return (
     <div className="notes-form">
@@ -31,7 +40,9 @@ export default function NotesForm({ notesList, setNotesList, tagsList }) {
         onChange={(e) => {
           setTitleInput(e.target.value);
         }}
+        required
       />
+      <span>{titleInput !== "" ? "" : "title can't be empty*"}</span>
       <label>Add Note : </label>
       <textarea
         rows="10"
@@ -41,6 +52,8 @@ export default function NotesForm({ notesList, setNotesList, tagsList }) {
           setNoteInput(e.target.value);
         }}
       />
+      <span>{noteInput !== "" ? "" : "note can't be empty*"}</span>
+      <label>Select Color : </label>
       <select
         style={{ backgroundColor: noteColor, color: "white" }}
         className="input"
@@ -54,12 +67,14 @@ export default function NotesForm({ notesList, setNotesList, tagsList }) {
               className="btn"
               value={color}
               style={{ backgroundColor: color }}
+              key={color}
             >
               {color}
             </option>
           );
         })}
       </select>
+      <label>Select Tag : </label>
       <select
         className="input"
         onChange={(e) => {
@@ -68,7 +83,7 @@ export default function NotesForm({ notesList, setNotesList, tagsList }) {
       >
         {tagsList.map((tag) => {
           return (
-            <option className="btn" value={tag}>
+            <option className="btn" key={tag} value={tag}>
               {tag}
             </option>
           );

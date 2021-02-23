@@ -1,5 +1,5 @@
 .MyNotes {
-  min-height: 87vh;
+  height: 87vh;
   width: 100%;
   background-color: var(--d3);
   padding: 0px;
@@ -29,14 +29,18 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 87vh;
+}
+.tglist-container {
+  padding: 1rem;
 }
 
 .taglist {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   padding: 1rem;
-  overflow: auto;
+  height: 52vh;
+  overflow-y: auto;
 }
 
 .taglist .btn {
@@ -44,10 +48,9 @@ button:hover {
 }
 
 h2 {
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 1px;
-  padding: 0.5rem;
-  margin-top: 0.5rem;
+  padding: 0.3rem;
   color: var(--color-1);
   border-bottom: 2px solid var(--color-1);
 }
@@ -62,8 +65,8 @@ h2 {
   border-top: 2px solid var(--color-1);
 }
 .tags-form h2 {
-  margin-bottom: 0;
-  border-bottom: 0px;
+  margin: 0px;
+  border: 0px;
   margin-top: 0.5rem;
   border-top: 2px solid var(--color-1);
 }
@@ -82,6 +85,19 @@ textarea {
   margin: 1rem 0rem;
   font-weight: 700;
 }
+.tags-form span {
+  text-align: right;
+  margin: 0px;
+  margin-right: 3rem;
+  font-weight: 300;
+  font-size: 0.7rem;
+  color: red;
+  /* color: var(--color-1); */
+}
+.tag-form div {
+  width: 100%;
+}
+
 .input {
   margin: 0.2rem;
   font-family: Montserrat;
@@ -101,6 +117,14 @@ textarea {
   background-color: var(--d2);
   margin: 5px;
   margin-right: 0px;
+  overflow-y: auto;
+}
+.notes-list .cat-label {
+  color: white;
+  font-weight: 500;
+  margin: 2px;
+  padding: 4px;
+  border-bottom: 2px solid white;
 }
 
 @media (max-width: 768px) {
@@ -110,6 +134,7 @@ textarea {
   }
   .MyNotes {
     width: 100%;
+    height: auto;
   }
   .notes-list,
   .taglist-manager,

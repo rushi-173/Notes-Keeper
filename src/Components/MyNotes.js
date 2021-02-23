@@ -33,24 +33,35 @@ export default function MyNotes() {
         />
         <div className="tags-form">
           <label>Add Tag : </label>
-          <input
-            type="text"
-            value={tagInput}
-            className="input"
-            onChange={tagChangeHandler}
-          />
-          <button className="input" onClick={addTag}>
-            Add
-          </button>
+          <div>
+            <input
+              type="text"
+              value={tagInput}
+              className="input"
+              onChange={tagChangeHandler}
+            />
+            <button className="input" onClick={addTag}>
+              Add
+            </button>
+          </div>
+          <span>{tagInput !== "" ? "" : "tag can't be empty*"}</span>
           <h2>Add New Tag</h2>
         </div>
       </div>
       <div className="notes-list">
         <h2>My Notes</h2>
+        <h3 className="cat-label">Pinned Notes</h3>
         <NotesListDisplay
           notesList={notesList}
           setNotesList={setNotesList}
           tagSelected={tagSelected}
+        />
+        <h3 className="cat-label">Unpinned Notes</h3>
+        <NotesListDisplay
+          notesList={notesList}
+          setNotesList={setNotesList}
+          tagSelected={tagSelected}
+          ispinnedprop={false}
         />
       </div>
       <div className="notes-manager">

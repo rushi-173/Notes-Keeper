@@ -3,7 +3,8 @@
   justify-content: space-around;
   align-items: flex-start;
   flex-wrap: wrap;
-  height: 90%;
+  height: 38%;
+  overflow-y: scroll;
 }
 .note-card {
   display: flex;
@@ -37,4 +38,23 @@
   background-color: transparent;
   border: none;
   outline: none;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--d1);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--d3);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-1);
 }
