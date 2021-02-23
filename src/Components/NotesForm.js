@@ -30,6 +30,13 @@ export default function NotesForm({ notesList, setNotesList, tagsList }) {
         },
         ...notesList
       ]);
+      setCurrentInput({
+        title: "",
+        note: "",
+        ispinned: false,
+        tag: "none",
+        color: "#18FFFF"
+      });
     }
   }
   return (
