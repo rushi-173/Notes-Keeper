@@ -24,11 +24,11 @@ export default function NotesForm({ notesList, setNotesList, tagsList }) {
   function createNote() {
     if (currentInput.note !== "" && currentInput.title !== "") {
       setNotesList([
-        ...notesList,
         {
           id: Date.now(),
           ...currentInput
-        }
+        },
+        ...notesList
       ]);
     }
   }
