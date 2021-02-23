@@ -9,22 +9,25 @@ export default function NotesForm({ notesList, setNotesList, tagsList }) {
     "#B2FF59",
     "#FFF59D"
   ];
-  const [noteColor, setNoteColor] = useState("#18FFFF");
-  const [noteTag, setNoteTag] = useState("none");
-  const [titleInput, setTitleInput] = useState("");
-  const [noteInput, setNoteInput] = useState("");
+  // const [noteColor, setNoteColor] = useState("#18FFFF");
+  // const [noteTag, setNoteTag] = useState("none");
+  const [currentInput, setCurrentInput] = useState({
+    title: "",
+    note: "",
+    ispinned: false,
+    tag: "none",
+    color: "#18FFFF"
+  });
+  // const [titleInput, setTitleInput] = useState("");
+  // const [noteInput, setNoteInput] = useState("");
 
   function createNote() {
-    if (noteInput !== "" && titleInput !== "") {
+    if (currentInput.note !== "" && currentInput.title !== "") {
       setNotesList([
         ...notesList,
         {
           id: Date.now(),
-          title: titleInput,
-          note: noteInput,
-          ispinned: false,
-          tag: noteTag,
-          color: noteColor
+          ...currentInput
         }
       ]);
     }
@@ -36,29 +39,32 @@ export default function NotesForm({ notesList, setNotesList, tagsList }) {
       <input
         type="text"
         className="input"
-        value={titleInput}
+        value={currentInput.title}
         onChange={(e) => {
-          setTitleInput(e.target.value);
+          setCurrentInput({ ...currentInput, title: e.target.value });
+          // setTitleInput(e.target.value);
         }}
         required
       />
-      <span>{titleInput !== "" ? "" : "title can't be empty*"}</span>
+      <span>{currentInput.title !== "" ? "" : "title can't be empty*"}</span>
       <label>Add Note : </label>
       <textarea
         rows="10"
         className="input"
-        value={noteInput}
+        value={currentInput.note}
         onChange={(e) => {
-          setNoteInput(e.target.value);
+          setCurrentInput({ ...currentInput, note: e.target.value });
+          // setNoteInput(e.target.value);
         }}
       />
-      <span>{noteInput !== "" ? "" : "note can't be empty*"}</span>
+      <span>{currentInput.note !== "" ? "" : "note can't be empty*"}</span>
       <label>Select Color : </label>
       <select
-        style={{ backgroundColor: noteColor, color: "white" }}
+        style={{ backgroundColor: currentInput.color, color: "white" }}
         className="input"
         onChange={(e) => {
-          setNoteColor(e.target.value);
+          setCurrentInput({ ...currentInput, color: e.target.value });
+          // setNoteColor(e.target.value);
         }}
       >
         {colorsList.map((color) => {
@@ -78,7 +84,8 @@ export default function NotesForm({ notesList, setNotesList, tagsList }) {
       <select
         className="input"
         onChange={(e) => {
-          setNoteTag(e.target.value);
+          setCurrentInput({ ...currentInput, tag: e.target.value });
+          // setNoteTag(e.target.value);
         }}
       >
         {tagsList.map((tag) => {
